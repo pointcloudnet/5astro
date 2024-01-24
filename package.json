@@ -1,0 +1,24 @@
+{
+	"name": "username-and-password",
+	"description": "Username & password example with Lucia and Astro",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/node": "latest",
+		"@lucia-auth/adapter-mongoose": "latest",
+		"@lucia-auth/adapter-sqlite": "latest",
+		"astro": "latest",
+		"better-sqlite3": "^8.4.0",
+		"lucia": "latest"
+	},
+	"devDependencies": {
+		"@types/better-sqlite3": "^7.6.3"
+	}
+}
