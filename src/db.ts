@@ -1,7 +1,7 @@
 import mongodb from "mongoose";
 
 export const User = mongodb.model(
-	"User",
+	'User',
 	new mongodb.Schema(
 		{
 			_id: {
@@ -19,7 +19,7 @@ export const User = mongodb.model(
 );
 
 export const Session = mongodb.model(
-	"Session",
+	'Session',
 	new mongodb.Schema(
 		{
 			_id: {
@@ -65,6 +65,11 @@ export const Key = mongodb.model(
 	)
 );
 
-export const connect = async () => {
+export const Connection = {
+	connect: async () => {
 	await mongodb.connect(process.env.MONGODB_URL as any);
+	},
+	disconnect: async () => {
+	await mongodb.connection.close();
+	}
 };

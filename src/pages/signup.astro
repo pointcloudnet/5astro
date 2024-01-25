@@ -4,6 +4,7 @@ import "../app.css";
 import { auth } from "../lib/lucia";
 // import { SqliteError } from "better-sqlite3";
 import { Error } from 'mongoose';
+import { LuciaError } from 'lucia';
 
 let usernameInput = "";
 let errorMessage = "";
@@ -50,7 +51,7 @@ if (Astro.request.method === "POST") {
 			// this part depends on the database you're using
 			// check for unique constraint error in user table
 			// if (e instanceof SqliteError && e.code === "SQLITE_CONSTRAINT_UNIQUE") {
-			if (e instanceof Error) {
+			if (e instanceof LuciaError || e instanceof Error ) {
 				errorMessage = "Problem signing up" + e;
 				Astro.response.status = 400;
 			} else {
