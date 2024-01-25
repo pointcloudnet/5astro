@@ -13,12 +13,9 @@
 	"dependencies": {
 		"@astrojs/node": "latest",
 		"@lucia-auth/adapter-mongoose": "latest",
-		"@lucia-auth/adapter-sqlite": "latest",
 		"astro": "latest",
-		"better-sqlite3": "^8.4.0",
 		"lucia": "latest"
 	},
 	"devDependencies": {
-		"@types/better-sqlite3": "^7.6.3"
 	}
 }
