@@ -1,4 +1,5 @@
-import mongodb from "mongoose";
+// import mongodb from "mongoose";
+import mongodb from 'mongoose';
 
 export const User = mongodb.model(
 	'User',
