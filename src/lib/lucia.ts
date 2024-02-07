@@ -3,6 +3,7 @@ import { lucia } from "lucia";
 import { mongoose } from "@lucia-auth/adapter-mongoose";
 import { astro } from "lucia/middleware";
 
+
 // import sqlite from "better-sqlite3";
 import mongodb from 'mongoose';
 // import fs from "fs";
@@ -16,11 +17,18 @@ import { User, Session, Key } from '../db.ts';
 // await Connection.create();
 // const db = mongodb.createConnection(process.env.MONGODB_URL).useDb('mongodb00');
 const db = mongodb.createConnection('mongodb://black/test');
+console.log(db.getClient());
 
-console.log(db.getClient())
-// const User = mongodb.model("User");
+const user = new mongodb.Model(User);
+const session = new mongodb.Model(Session);
+const key = new mongodb.Model(Key);
 // const Key = mongodb.model("Key");
 // const Session = mongodb.model("Session");
+export const adapter = mongoose({
+	User: user
+	,Session: session
+	,Key: key
+});
 export const auth = lucia({
 	// adapter: betterSqlite3(db, {
 	// 	user: "user",
@@ -28,12 +36,7 @@ export const auth = lucia({
 	// 	key: "user_key"
 	// }),
 	// adapter: mongoose(db),
-	adapter: mongoose({
-		// user: 'user',
-		User,
-		Session,
-		Key
-	}),
+	adapter: adapter,
 	middleware: astro(),
 	env: import.meta.env.DEV ? "DEV" : "PROD",
 	getUserAttributes: (data) => {

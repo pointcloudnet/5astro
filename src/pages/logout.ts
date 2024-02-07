@@ -1,4 +1,4 @@
-import { auth } from "../lib/lucia";
+import { auth } from "../lib/lucia.ts";
 
 import type { APIRoute } from "astro";
 

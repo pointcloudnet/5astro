@@ -1,4 +1,4 @@
-import { auth } from "./lib/lucia";
+import { auth } from "./lib/lucia.ts";
 
 // import type { MiddlewareResponseHandler } from "astro";
 import type { MiddlewareHandler as MiddlewareResponseHandler } from "astro";
